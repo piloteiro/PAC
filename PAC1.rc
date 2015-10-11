@@ -1,0 +1,361 @@
+/////////Portuguese PAC Resource Section - 10 -12-1997
+
+////////FORMS
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    10     "PAC - Programa de Análise Cultural 1.0"
+END
+
+////////LABELS
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    30     "Acontecimento:"
+    31     "Acontecimentos:"
+    32     "Acrecenta Novo Termo"
+    33     "Ajudante:"
+    34     "Aldeia:"
+    35     "Autor:"
+    36     "Caderno:"
+    37     "Casa n°:"
+    38     "Clã:"
+    39     "Class. da 1ª Geração Ascend.:"
+    40     "Class. de Primo:"
+    41     "Classificação:"
+    42     "Data:"
+    43     "Egos:"
+    44     "Esboço Universal:"
+    45     "Falecimento:"
+    46     "Famílias:"
+    47     "Filhos:"
+    48     "Idioma da Interface:"
+    49     "Localização:"
+    50     "Lugar de Nascimento:"
+    51     "Lugar que mora:"
+    52     "Mãe biológica:"
+    53     "Nascimento:"
+    54     "Nome Indígena:"
+    55     "Nome Nacional:"
+    56     "Observação:"
+    57     "Página:"
+    58     "Pai biológico:"
+    59     "Pergunta:"
+    60     "Perguntas Gerais:"
+    61     "Pesquisador:"
+    62     "Pesquisadores:"
+    63     "Referências:"
+    64     "Resultados:"
+    65     "Termo de Parentesco:"
+    66     "Termo:"
+    67     "Texto na Observação:"
+    68     "Título da Descrição:"
+    69     "Título:"
+    70     "Tribo:"
+    71     "Universal:"
+    72     "até:"
+END
+
+////////OPTION and CHECK BOXES
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    90     "Casado"
+    91     "Nasci. e/ou"
+    92     "F"
+    93     "Falesc.:"
+    94     "Feminino"
+    95     "Lista"
+    96     "M"
+    97     "Mapa"
+    98     "Masculino"
+    99     "Orientação"
+    100     "Procriação"
+    101     "Separado"
+    102     "Solteiro"
+    103     "União irregular"
+    104     "Viúvo"
+    105     "Completado"
+    106     "Perguntas Confirmadas"
+    107     "Travado"
+    108     "Nacional"
+END
+
+////////SSCOMMAND BUTTONS & COMMAND BUTTON
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    130     "Gravar"
+    131     "Novo"
+    132     "OK"
+    133     "Apagar"
+    134     "Buscar"
+    135     "Cancelar"
+    136     "Editar"
+    137     "Imprimir"
+    138     "Inserir"
+    139     "Lista"
+    140     "Nova"
+    141     "Novo Termo"
+    142     "Info"
+END
+
+////////FRAMES
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    160     "Acontecimento"
+    161     "Dados de controle"
+    162     "Editando Descrição"
+    163     "Editando Mapa"
+    164     "Ego"
+    165     "Estado Civil"
+    166     "Família"
+    167     "Informações"
+    168     "Confirmações"
+    169     "Data"
+    170     "Período"
+    171     "Relacionamentos"
+    172     "Sexo"
+    173     "Sexo do Ego"
+    174     "Vista"
+    175     "Mapa"
+END
+
+////////TABS
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    190     "&Casas/Pessoal"
+    191     "&Descrições"
+    192     "&Ego"
+    193     "&Família Nuclear"
+    194     "&Lições"
+    195     "Planeja&mento"
+    196     "&Acontecimentos"
+    197     "Anali&zar"
+    198     "Análise &Geral"
+    199     "Config&uração"
+    200     "Edi&tar"
+    201     "Ge&ral"
+    202     "&Parentesco"
+END
+
+////////DBGrid
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    220     "Dados"
+    221     "Nome do Parente"
+    222     "Perguntas Ampliadas"
+    223     "Termo Técnico"
+END
+
+////////LIST	BOXES 
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    260     "Português"
+    261     "Inglês"
+    262     "Referência"
+    263     "Tratamento"
+    264     "Primos"
+    265     "1ª Geração Ascendente"
+    264     "Geral"
+END
+
+////////MISC
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+   280     "O campo"
+   281     "tem que ser preenchido."
+   282     "Atenção!"
+   283     "de"
+   284     "Você tem que indicar o sexo do Ego."
+   285     "ou o campo"
+   286     "tem que ser preenchido com um valor numérico."
+   287     "O campo FILHO: não pode ser igual ao campo PAI BIOLÓGICO: ou ao campo MÃE BIOLÓGICA:."
+   288     "Esta pessoa já foi incluída na lista de filhos."
+END
+
+/////////English PAC Resource Section
+
+////////FORMS
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2310     "CAP - Culture Analysis Program 1.0"
+END
+
+////////LABELS
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2330     "Incident:"
+    2331     "Incident file:"
+    2332     "Add New Term"
+    2333     "Helper:"
+    2334     "Village:"
+    2335     "Author:"
+    2336     "Notebook:"
+    2337     "House #:"
+    2338     "Clan:"
+    2339     "1st Ascending Gener. Classifi.:"
+    2340     "Cousin Classifi.:"
+    2341     "Classification:"
+    2342     "Date:"
+    2343     "Egos:"
+    2344     "Universal outline:"
+    2345     "Died:"
+    2346     "Families:"
+    2347     "Children:"
+    2348     "Interface Language:"
+    2349     "Region:"
+    2350     "Place of Birth:"
+    2351     "Location:"
+    2352     "Biological mother:"
+    2353     "Born:"
+    2354     "Indigenous name:"
+    2355     "National name:"
+    2356     "Comment:"
+    2357     "Page:"
+    2358     "Biological father:"
+    2359     "Question:"
+    2360     "Questions to self:"
+    2361     "Researcher:"
+    2362     "Researchers:"
+    2363     "Cross-references:"
+    2364     "Results:"
+    2365     "Kinship Terms:"
+    2366     "Term:"
+    2367     "Comment text string:"
+    2368     "Description Title:"
+    2369     "Title:"
+    2370     "Tribe:"
+    2371     "Universal:"
+    2372     "to:"
+END
+
+////////OPTION and CHECK BOXES
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2390     "Married"
+    2391     "Born and/or"
+    2392     "F"
+    2393     "Death:"
+    2394     "Female"
+    2395     "List"
+    2396     "M"
+    2397     "Diagram"
+    2398     "Male"
+    2399     "Orientation"
+    2400     "Procreation"
+    2401     "Separated"
+    2402     "Single"
+    2403     "Anormal union"
+    2404     "Widow/er"
+    2405     "Completed"
+    2406     "Verified Questions:"
+    2407     "Locked"
+    2408     "National"
+END
+
+////////SSCOMMAND BUTTONS & COMMAND BUTTON
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2430     "Save"
+    2431     "New"
+    2432     "OK"
+    2433     "Delete"
+    2434     "Search"
+    2435     "Cancel"
+    2436     "Edit"
+    2437     "Print"
+    2438     "Insert"
+    2439     "List"
+    2440     "New"
+    2441     "New Term"
+    2442     "Info"
+END
+
+////////FRAMES
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2460     "Incident"
+    2461     "Control data"
+    2462     "Edit Description"
+    2463     "Edit Diagram"
+    2464     "Ego"
+    2465     "Marital Status"
+    2466     "Family"
+    2467     "Information"
+    2468     "Verifications"
+    2469     "Date"
+    2470     "Time Period"
+    2471     "Relationships"
+    2472     "Sex"
+    2473     "Ego's sex"
+    2474     "View"
+    2475     "Diagram"
+END
+
+////////TABS
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2490     "&House Census"
+    2491     "&Descriptions"
+    2492     "&Ego"
+    2493     "Nuclear &Family"
+    2494     "&Lessons"
+    2495     "&Planning"
+    2496     "&Incidents"
+    2497     "Analy&ze"
+    2498     "&Search Overview"
+    2499     "&Configuration"
+    2500     "Edi&t"
+    2501     "&Overview"
+    2502     "&Kinship"
+END
+
+////////DBGrid
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2520     "Data"
+    2521     "Relative's name"
+    2522     "Questions to helper"
+    2523     "Technical term"
+END
+
+////////LIST	BOXES 
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2560     "Portuguese"
+    2561     "English"
+    2562     "Reference"
+    2563     "Address"
+    2564     "Cousin"
+    2565     "1st Ascending Generation"
+    2566     "ALL"
+END
+
+////////MISC
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    2580     "The data for"
+    2581     "field needs to be entered."
+    2582     "ATTENTION!"
+    2583     "of"
+    2584     "Chose Male or Female"
+    2585     "field or"
+    2586     "is numbers only."
+    2587     "The field CHILDREN: cannot be the same as the field BIOLOGICAL FATHER: or BIOLOGICAL MOTHER:."
+    2588     "(Inglês) - Esta pessoa já foi incluída na lista de filhos."
+END

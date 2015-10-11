@@ -1,0 +1,324 @@
+                    Case "1" 'Pai
+                        'If Ego_Inicial = 2 Then Stop
+                        denovo = 0 'zera esta variável caso seja necessário entrar em filhos depois daqui.
+                        Proximo_Casal = TB_Pais(MaisUm, Proximo_Casal, "ID_Conj1", Passos, Esposa_Outra_Camada, Trilha, Nova_Trilha)
+                        If Proximo_Casal = 0 Then
+                            ID_Ego_TB = -1
+                            Exit For
+                        Else
+                            ID_Ego_TB = DBcp_Ego.Recordset("ID_Ego") 'Recebe o ID do homem que responde pelo TB.
+                        End If
+                            
+                        'ID_Ego_TB = -1
+
+'                        denovo = 0 'zera esta variável caso seja necessário entrar em filhos depois daqui.
+'                        DBcp_Ego.Recordset.FindFirst "ID_Ego= " & Procurar_De_Quem(MaisUm)
+'                        'Para evitar uma variável nula usei a variável Zero como teste, pois _
+'                         o DB_Temp.Recordset("ID_Pais") pode se nulo(Isto significa que o pai _
+'                         do ego conderado não foi cadastrado) e isto casaria um erro.
+'                        Zero = IIf(IsNull(DBcp_Ego.Recordset("ID_Pais")) = True, 0, DBcp_Ego.Recordset("ID_Pais"))
+'                        'Pega o ID do casal para ser pesquisado.
+'                        Proximo_Casal = IIf(Proximo_Casal <> 0, Proximo_Casal, Zero)
+'                        If Proximo_Casal <> 0 Then
+'                            MeuCritério = "ID_Casal = " & Proximo_Casal
+'                            DBcp_Casais.Recordset.FindFirst MeuCritério 'Procura pelo casal no DB.
+'                            MeuCritério = "ID_Ego=" & DBcp_Casais.Recordset("ID_Conj1")
+'                            DBcp_Ego.Recordset.FindFirst MeuCritério 'Procura o homem no DB
+'                            ID_Ego_TB = DBcp_Ego.Recordset("ID_Ego") 'Recebe o ID do homem que responde pelo TB.
+'                            If Passos = Len(IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha)) Then 'Se for o último TB pesquizado
+'                                'Inclui o nome do corrente ego na lista de egos, pois ele tem um pai.
+'                                List(5).AddItem DB_Temp.Recordset("Nome_Ind")
+'                                'Pega o ID_Ego do corrente ego para uso posterior e associa no itemdata.
+'                                List(5).ItemData(List(5).NewIndex) = DB_Temp.Recordset("ID_Ego")
+'                                'Guarda o ID_Ego do Pai nesta variável para uso posterior.
+'                                Arvore(Ego_Inicial, 1, 0) = DBcp_Ego.Recordset("ID_Ego") 'teste
+'                                'Guarda o Nome do Pai nesta variável para uso posterior.
+'                                Arvore(Ego_Inicial, 1, 1) = DBcp_Ego.Recordset("Nome_Ind") 'teste
+'                                Arvore(Ego_Inicial, 0, 0) = 1
+'                                Proximo_Casal = 0 'Nenhum casal selecionado.
+'                                ID_Ego_TB = -1 'A variável é zerada, para uso posterior.
+'                            End If
+'                            'Caso o ID_PAIS está vazio o processo termina aqui com este ego, pois ele _
+'                             não tem pai cadastrado
+'                            If IsNull(DBcp_Ego.Recordset("ID_Pais")) = True Then
+'                                Proximo_Casal = 0 'Nenhum casal selecionado.
+'                                ID_Ego_TB = -1 'A variável é zerada, para uso posterior.
+'                                Exit For 'Sair do for-next que seleciona o TB e vai em para outro ego.
+'                            Else 'Caso tem um pai....
+'                                'Seleciona o corrente casal, pois este casal pode continuar a _
+'                                 pesquisado no próximo for-next.
+'                                Proximo_Casal = DBcp_Ego.Recordset("ID_Pais")
+'                            End If
+'                        End If
+                    Case "2" 'Mãe
+                        denovo = 0 'zera esta variável caso seja necessário entrar em filhos depois daqui.
+                        Proximo_Casal = TB_Pais(MaisUm, Proximo_Casal, "ID_Conj2", Passos, Esposa_Outra_Camada, Trilha, Nova_Trilha)
+                        'If Proximo_Casal = 0 Then Exit For
+                        If Proximo_Casal = 0 Then
+                            ID_Ego_TB = -1
+                            Exit For
+                        Else
+                            ID_Ego_TB = DBcp_Ego.Recordset("ID_Ego") 'Recebe o ID do homem que responde pelo TB.
+                        End If
+                        
+                    Case "3" 'Irmão
+                        denovo = 0 'zera esta variável caso seja necessário entrar em filhos depois daqui.
+                        Proximo_Casal = TB_Irmãos(MaisUm, Proximo_Casal, ID_Ego_TB, " sexo=0", Passos, Esposa_Outra_Camada, Trilha, Nova_Trilha)
+                        If Proximo_Casal = 0 Then
+                            ID_Ego_TB = -1
+                            Exit For
+                        Else
+                            ID_Ego_TB = DBcp_Ego.Recordset("ID_Ego") 'Recebe o ID do homem que responde pelo TB.
+                        End If
+                    
+'                        'Entra aqui se estamos procurando parente da esposa.
+'                        If Procurar_De_Quem(MaisUm) <> DB_Temp.Recordset("ID_Ego") Then
+'                            DBcp_Ego.Recordset.FindFirst "ID_Ego= " & Procurar_De_Quem(MaisUm)
+'                            'Para evitar uma variável nula usei a variável Zero como teste, pois _
+'                             o DB_Temp.Recordset("ID_Pais") pode se nulo(Isto significa que o pai _
+'                             do ego conderado não foi cadastrado) e isto casaria um erro.
+'                            Zero = IIf(IsNull(DBcp_Ego.Recordset("ID_Pais")) = True, 0, DBcp_Ego.Recordset("ID_Pais"))
+'                        'Aqui os parentes do ego inicial é procurado.
+'                        Else
+'                            Zero = IIf(IsNull(DB_Temp.Recordset("ID_Pais")) = True, 0, DB_Temp.Recordset("ID_Pais"))
+'                        End If
+'                         denovo = 0 'zera esta variável caso seja necessário entrar em filhos depois daqui.
+'                         'Pega o ID do casal para ser pesquisado, precisa achar os pai do _
+'                          corrente ego para achar os seus irmãos.
+'                         Proximo_Casal = IIf(Proximo_Casal <> 0, Proximo_Casal, Zero)
+'                        'Proximo_Casal = 0 significa que o corrente ego não tem pais cadastrados
+'                        If Proximo_Casal <> 0 Then
+'                            'Este critério procura os egos masculinos diferente do corrente ego _
+'                             com os mesmos os pais.
+'                            MeuCritério = "ID_Pais = " & Proximo_Casal & " and " _
+'                                          & "ID_Ego <>" & IIf(ID_Ego_TB = -1, CStr(Procurar_De_Quem(MaisUm)), ID_Ego_TB) & " and " _
+'                                          & "sexo =0"
+'                            DBcp_Ego.Recordset.FindFirst MeuCritério
+'                            'Se não encontrar outro ego com ID_PAIS igual, _
+'                             então o processo termina vai para outro ego.
+'                            If DBcp_Ego.Recordset.NoMatch = True Then Exit For
+'                            ID_Ego_TB = DBcp_Ego.Recordset("ID_Ego")
+'                            'O loop abaixo vai achar os possíveis irmãos e armazená-los _
+'                             na vareável arvore().
+'                            Qt = 0 'Contador
+'                            Do While DBcp_Ego.Recordset.NoMatch = False 'Se não encontrar outro ego com ID_PAIS igual, então o processo termina vai para outro ego.
+'                                Qt = Qt + 1 'Acrescenta mais um ao contador.
+'                                'Guarda o ID_Ego do Pai nesta variável para uso posterior.
+'                                Arvore(Ego_Inicial, Qt, 0) = DBcp_Ego.Recordset("ID_Ego")
+'                                'Guarda o Nome do Pai nesta variável para uso posterior.
+'                                Arvore(Ego_Inicial, Qt, 1) = DBcp_Ego.Recordset("Nome_Ind")
+'                                DBcp_Ego.Recordset.FindNext MeuCritério 'Procura por outro irmão
+'                            Loop
+'                            'Grava aqui o número total de irmãos encontrados.
+'                            Arvore(Ego_Inicial, 0, 0) = Qt
+'                            'If DB_Temp.Recordset("ID_Ego") = 0 Then Stop
+'                            If Passos = Len(IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha)) Then 'Se for o último TB pesquizado
+'                                'Inclui o nome do corrente ego na lista de egos, pois ele tem irmãos.
+'                                List(5).AddItem DB_Temp.Recordset("Nome_Ind")
+'                                'Pega o ID_Ego do corrente ego para uso posterior e associa no itemdata.
+'                                List(5).ItemData(List(5).NewIndex) = Ego_Inicial 'teste ID_Ego_TB 'Pega o ID do parente e associa no itemdata.
+'                                If MaisUm = Procurar_De_Quem(0) Then
+'                                    Esposa_Outra_Camada = 0
+'                                    'Arvore(Ego_Inicial, 0, 0) = ""
+'                                End If
+'                                Proximo_Casal = 0 'Nenhum casal selecionado.
+'                                ID_Ego_TB = -1 'A variável é zerada, para uso posterior.
+'                            End If
+'                            'Caso o ID_PAIS está vazio o processo termina aqui com este ego pois ele _
+'                             não tem irmãos associados e cadastrados no DB
+'                            If IsNull(DBcp_Ego.Recordset("ID_Pais")) = True Then
+'                                Proximo_Casal = 0 'Nenhum casal selecionado.
+'                                ID_Ego_TB = -1 'A variável é zerada, para uso posterior.
+'                                Exit For 'Sair do for-next que seleciona o TB e vai em para outro ego.
+'                            End If
+'                        Else 'O corrente ego não tem pais cadastrados, por isso... _
+'                              ...vai sair deste processo e procurar outro ego.
+'                            Exit For
+'                        End If
+                    Case "4" 'Irmã
+                        'If Ego_Inicial = 6 Then Stop
+                        denovo = 0 'zera esta variável caso seja necessário entrar em filhos depois daqui.
+                        Proximo_Casal = TB_Irmãos(MaisUm, Proximo_Casal, ID_Ego_TB, " sexo=1", Passos, Esposa_Outra_Camada, Trilha, Nova_Trilha)
+                        If Proximo_Casal = 0 Then
+                            ID_Ego_TB = -1
+                            Exit For
+                        Else
+                            ID_Ego_TB = DBcp_Ego.Recordset("ID_Ego") 'Recebe o ID do homem que responde pelo TB.
+                        End If
+
+
+                    Case "5" 'Filho
+                        'If DB_Temp.Recordset("id_ego") = 0 Then Stop
+                        denovo = denovo + 1 'Conta quantas vezes entrou aqui com o mesmo ego. Volta para 1 quando mudar o ego
+                        'Ajusta para saber até que camada vai. Camada não muda até mudar o Termo.
+                        If denovo > Camada Then Camada = denovo
+                        'Descobrir QUEM será pesquisado
+                        If Passos = 1 Then 'Significa que estamos procurando os filhos do ego em DB_Temp
+                            'Descobre se o ego é H ou M e associa o ID_Conj correto.
+                            Qual_Conj = IIf(DB_Temp.Recordset("sexo") = 0, "ID_Conj1", "ID_Conj2")
+                            MeuCritério = Qual_Conj & "= " & CStr(DB_Temp.Recordset("ID_ego"))
+                            'Chama a função que vai procurar os filhos do corrente ego.
+                            Call Acha_Filhos(MeuCritério, denovo, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha), Passos)
+                        Else 'Estamos procurando os filhos de outros que não do próprio ego...
+                             'Pode ser filhos de outro filho ou filho de irmão(ã)
+                            If denovo > 1 Then 'Já passou aqui com o mesmo ego, portanto estamos procurando filho de filho..
+                                'Ego_Inicial = DB_Temp.Recordset("id_ego") 'Mantendo a ligação com o ego inicial
+                                'É necessário passar por todos os egos para saber quem são os filhos da camada anterior.
+                                'Estes egos filhos serão agora os pais (Ego_Pai)
+                                For Ego_Pai = 0 To DBcp_Ego.Recordset.RecordCount - 1
+                                    n = 1 'Inicia a variável que dará o número de filhos no final
+                                    Conta_Pai = Ego_Pai
+                                    'Com cada ego_pai considerado, nós procuramos se há filhos.
+                                    If Tree_Filhos(Ego_Inicial, Conta_Pai, 0, denovo - 1) <> "" Then
+                                        'Com cada ego_pai considerado, nós procuramos se há filhos.
+                                        'Lembra do formato do Tree_filhos para o início de cada camada(Ego_Inicial, ego_pai, 1, camada) _
+                                         Isto indica se há filhos e quantos filhos naquela camada.
+                                        For conta_filho = 1 To CInt(Tree_Filhos(Ego_Inicial, Conta_Pai, 0, denovo - 1))
+                                            'Da 2ª camada em diante o pai sempre é diferente o ego inicial, _
+                                             pois não existe um pai sendo pai dele mesmo.
+                                            If Ego_Pai = Ego_Inicial And denovo > 2 Then Exit For  'Se prosseguir causa erro.
+                                            'Evita chamar a função Achar_Filhos sem motivo, pois o Tree_Filhos estará vazio.
+                                            If Tree_Filhos(Ego_Inicial, Conta_Pai, conta_filho, denovo - 1) = "" Then Exit For
+                                            'Agora o filho será o novo pai da história
+                                            Novo_Pai = CInt(Tree_Filhos(Ego_Inicial, Conta_Pai, conta_filho, denovo - 1))
+                                            MeuCritério = "ID_Conj1 = " & CStr(Novo_Pai) 'O novo_pai vai ser procurado no DB_Casais
+                                            Call Acha_Filhos(MeuCritério, denovo, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha), Passos) ' = 0 Then Exit For
+                                        Next conta_filho
+                                    End If
+                                Next Ego_Pai
+                            'Primeira vez que entra aqui, mas já passou por outro TB, _
+                             então procuramos filho do(a) irmão(ã)
+                            ElseIf denovo = 1 Then
+                                'If DB_Temp.Recordset("id_ego") = 18 Then Stop
+                                If Mid(IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha), Passos - 1, 1) = "3" Then
+                                    'Caso estejamos procurando filho do irmão (do, da)...
+                                    MeuCritério = "ID_Conj1= "
+                                ElseIf Mid(IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha), Passos - 1, 1) = "4" Then
+                                    'Caso estejamos procurando fiho da irmã (do, da)...
+                                    MeuCritério = "ID_Conj2= "
+                                End If
+                                'Já sabemos quantos irmãos(ãs) o ego em db_temp tem, pois _
+                                 o processo já passou pela seção de busca de irmãos(ãs). _
+                                 Carreguei os irmãos nas variáveis Cada_Irmão() e esvaziei _
+                                 as variáveis Arvore() por segurança, pois esta variável _
+                                 será manipulada pela função Acha_filhos()
+                                If Arvore(Ego_Inicial, 0, 0) <> "" Then
+                                    qt_irmão = CInt(Arvore(Ego_Inicial, 0, 0))
+                                    ReDim Cada_Irmão(qt_irmão) As Integer
+                                    For Sequ = 1 To qt_irmão
+                                        Cada_Irmão(Sequ) = CInt(Arvore(Ego_Inicial, Sequ, 0))
+                                        Arvore(Ego_Inicial, Sequ, 0) = ""
+                                        Arvore(Ego_Inicial, Sequ, 1) = ""
+                                    Next Sequ
+                                    Arvore(Ego_Inicial, 0, 0) = ""
+                                    For Qt = 1 To qt_irmão
+                                        Irmão_Critério = MeuCritério & Cada_Irmão(Qt)
+                                        'Esta função será chamada com cada irmão selecionado.
+                                        Call Acha_Filhos(Irmão_Critério, denovo, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha), Passos)
+                                    Next Qt
+                                End If
+                            End If
+                        End If
+                    Case "6" 'Filha
+                    Case "7" 'Esposo
+                    Case "8" 'Esposa
+                    'Só entra aqui se está procurando a esposa do ego inicial ou se
+                    If Procurar_De_Quem(1) = DB_Temp.Recordset("ID_Ego") Or Passos > 2 Then
+                        'Caso a busca seja pela(s) esposa(s) do corrente ego...
+                        If Len(IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha)) = 1 Then
+                            'Se o ego selecionado for o Feminino, então deve sair deste procedimento, _
+                             pois a condição esposa de uma mulher não vale.
+                            If SSOption(17).Value = True Then Exit Sub
+                            'Este critério procura pelas uniões feitas pelo corrente ego. _
+                             Observe que ele pode ter ou teve várias famílias de procriação. _
+                             As uniões desfeitas por separação não entram aqui.
+                            MeuCritério = "ID_Conj1= " & DB_Temp.Recordset("ID_Ego") _
+                                           & " and Civil <> 5"
+                            Call Acha_Esposas(MeuCritério, Passos, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha))
+                        'Vai entrar aqui quando procura a(s) esposa(s) que não _
+                         sejam do próprio ego.
+                        Else
+                            'Esta variável pega o termo básico anterior ao tb esposa. Estamos _
+                             procurando esposa(s) do pai, do irmão e do filho.
+                            TB_Anterior = Mid(IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha), Passos - 1, 1)
+                            Select Case TB_Anterior
+                                Case "1" 'Pai
+                                    'Lembre que o ID do pais está guardado nesta variável: Arvore(ego_inicial, 1, 0)
+                                    'Este critério procura pelas uniões feitas pelo pai do ego. _
+                                     Estamos procurando por aquelas esposas do pai que não seja _
+                                     a própria mãe do ego. As uniões desfeitas pelo pai não importam aqui.
+                                    MeuCritério = "ID_Conj1= " & Arvore(Ego_Inicial, 1, 0) & _
+                                                   " and ID_Casal<> " & DB_Temp.Recordset("ID_Pais") & _
+                                                   " and Civil<> 5"
+                                    Call Acha_Esposas(MeuCritério, Passos, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha))
+                                Case "3" 'Irmão
+                                    'Já sabemos quantos irmãos o ego em db_temp tem, pois _
+                                     o processo já passou pela seção de busca de irmãos. _
+                                     Carreguei os irmãos nas variáveis Cada_Irmão() e esvaziei _
+                                     as variáveis Arvore() por segurança, pois esta variável _
+                                     será manipulada pela função Acha_Esposas()
+                                    If Arvore(Ego_Inicial, 0, 0) <> "" Then
+                                        qt_irmão = CInt(Arvore(Ego_Inicial, 0, 0))
+                                        ReDim Cada_Irmão(qt_irmão) As Integer
+                                        For Sequ = 1 To qt_irmão
+                                            Cada_Irmão(Sequ) = CInt(Arvore(Ego_Inicial, Sequ, 0))
+                                            Arvore(Ego_Inicial, Sequ, 0) = ""
+                                            Arvore(Ego_Inicial, Sequ, 1) = ""
+                                        Next Sequ
+                                        Arvore(Ego_Inicial, 0, 0) = ""
+                                        For Qt = 1 To qt_irmão
+                                            'Este critério procura as esposas dos irmãos atuais ou que já morreram. _
+                                             As esposas de casamentos desfeitos por separação não contam.
+                                            Irmão_Critério = "ID_Conj1= " & Cada_Irmão(Qt) & " and Civil<> 5"
+                                            'Esta função será chamada com cada irmão selecionado.
+                                            Call Acha_Esposas(Irmão_Critério, Passos, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha))
+                                        Next Qt
+                                    End If
+                                Case "5" 'Filho
+                                    'Já sabemos quantos filhos o ego em db_temp tem, pois _
+                                     o processo já passou pela seção de busca de filhos. _
+                                     Carreguei os filhos nas variáveis Cada_Irmão() e esvaziei _
+                                     as variáveis Arvore() por segurança, pois esta variável _
+                                     será manipulada pela função Acha_Esposas()
+                                    If Arvore(Ego_Inicial, 0, 0) <> "" Then
+                                        qt_irmão = CInt(Arvore(Ego_Inicial, 0, 0))
+                                        ReDim Cada_Irmão(qt_irmão) As Integer
+                                        For Sequ = 1 To qt_irmão
+                                            Cada_Irmão(Sequ) = CInt(Arvore(Ego_Inicial, Sequ, 0))
+                                            Arvore(Ego_Inicial, Sequ, 0) = ""
+                                            Arvore(Ego_Inicial, Sequ, 1) = ""
+                                        Next Sequ
+                                        Arvore(Ego_Inicial, 0, 0) = ""
+                                        For Qt = 1 To qt_irmão
+                                            'Este critério procura as esposas dos irmãos atuais ou que já morreram. _
+                                             As esposas de casamentos desfeitos por separação não contam.
+                                            Irmão_Critério = "ID_Conj1= " & Cada_Irmão(Qt) & " and Civil<> 5"
+                                            'If Qt = 4 Then Stop
+                                            'Esta função será chamada com cada irmão selecionado.
+                                            Call Acha_Esposas(Irmão_Critério, Passos, IIf(Esposa_Outra_Camada = 0, Trilha, Nova_Trilha))
+                                        Next Qt
+                                    End If
+                            End Select
+                            
+                        End If
+                        'Caso nenhuma esposa seja encontrada, então o For-Next é interrompido _
+                         para que outro ego inicial seja escolhido para outra busca.
+                        If Arvore(Ego_Inicial, 0, 0) = "" Then Exit For
+                        'Caso estamos procurando parentes de esposas do irmão, pai ou filho. Isto _
+                         siginifica que o termo tecnico não é composto apenas de Esposa, nem o primeiro TB e _
+                         nem o último TB é Esposa. Left(Trilha, 1) <> "8")
+                         'If DB_Temp.Recordset("ID_Ego") = 0 Then Stop
+                         qqqq = Arvore(41, 0, 0)
+                         Sequ = 0
+                         posi = IIf(InStr(Trilha, "8") = 2, 2, 3)
+                         Sequ = InStr(posi, Trilha, 8)
+                        If Len(Trilha) > 2 And Sequ <> 0 And Right(Trilha, 1) <> "8" Then
+                            Nova_Trilha = Mid(Trilha, Passos + 1, Len(Trilha) - (Passos))
+                            'Passos
+                            Esposa_Outra_Camada = 1
+                            pulaUma = 1
+                            Exit For
+                        
+                        End If
+                    End If
+                End Select

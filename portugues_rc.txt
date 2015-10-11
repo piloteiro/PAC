@@ -1,0 +1,131 @@
+FORMS
+2     PAC - Programa de Análise Cultural 1.0
+     
+     
+     
+LABELS
+8     Acontecimento:
+9     Acontecimentos:
+10     Acrecenta Novo Termo
+11     Ajudante:
+12     Aldeia:
+13     Autor:
+14     Caderno:
+15     Casa n°:
+16     Clã:
+17     Class. de 1ª Geração Ascend.:
+18     Class. de Primo:
+19     Classificação:
+20     Data:
+21     Egos:
+22     Esboço Universal:
+23     Falescimento:
+24     Famílias:
+25     Filhos:
+26     Idioma da Interface:
+27     Localização:
+28     Lugar de Nascimento:
+29     Lugar que mora:
+30     Mãe biológica:
+31     Nascimento:
+32     Nome Indígena:
+33     Nome Nacional:
+34     Observação:
+35     Página:
+36     Pai biológico:
+37     Pergunta:
+38     Perguntas Gerais:
+39     Pesquisador:
+40     Pesquisadores:
+41     Referências:
+42     Resultados:
+43     Termo de Parentesco:
+44     Termo:
+45     Texto na Observação:
+46     Título da Descrição:
+47     Título:
+48     Tribo:
+49     Universal:
+50     até:
+     
+     
+     
+OPTION and CHECK BOXES
+60     Casado
+61     Nasci. e/ou
+62     F
+63     Falesc.:
+64     Feminino
+65     Lista
+66     M
+67     Mapa
+68     Masculino
+69     Orientação
+70     Procriação
+71     Separado
+72     Solteiro
+73     União irregular
+74     Viúvo
+75     Completado
+76     Perguntas Confirmadas:
+77     Travado
+     
+     
+     
+SSCOMMAND BUTTONS & COMMAND BUTTON
+80     &Gravar
+81     &Novo
+82     &OK
+83     Apagar
+84     Buscar
+85     Cancelar
+86     Editar
+87     Im&primir
+88     Inserir
+89     Lista
+90     Nova
+91     Novo &Termo
+92     Info
+     
+     
+FRAMES
+     
+100     Acontecimento
+101     Dados de controle
+102     Editando Descrição
+103     Editando Mapa
+104     Ego
+105     Estado Civil
+106     Família
+107     Informações
+108     Confirmações
+109     Data
+110     Período
+111     Relacionamentos
+112     Sexo
+113     Sexo do Ego
+114     Vista
+115     Mapa
+     
+     
+TABS
+120     &Casas/Pessoal
+121     &Descrições
+122     &Ego
+123     &Família Nuclear
+124     &Lições
+125     &Planejamento
+126     Acontecimentos
+127     Anali&zar
+128     Análise &Geral
+129     Configur&ação
+130     Editar
+131     Geral
+132     Parentesco
+     
+DBGrid
+140     Dados
+141     Nome do Parente
+142     Perguntas Ampliadas
+143     Termo Técnico
+

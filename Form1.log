@@ -1,0 +1,42 @@
+Line 825: Class ComctlLib.TreeView of control TreeView1 was not a loaded control class.
+Line 1032: Class ComctlLib.ListView of control ListView1 was not a loaded control class.
+Line 1103: Class ComctlLib.TreeView of control TreeView2 was not a loaded control class.
+Line 4448: Class ComctlLib.ImageList of control ImageList2 was not a loaded control class.
+Line 4530: Class ComctlLib.ImageList of control ImageList1 was not a loaded control class.
+Line 831: The property name _ExtentX in TreeView1 is invalid.
+Line 832: The property name _ExtentY in TreeView1 is invalid.
+Line 833: The property name _Version in TreeView1 is invalid.
+Line 834: The property name LabelEdit in TreeView1 is invalid.
+Line 835: The property name Style in TreeView1 is invalid.
+Line 1038: The property name _ExtentX in ListView1 is invalid.
+Line 1039: The property name _ExtentY in ListView1 is invalid.
+Line 1040: The property name View in ListView1 is invalid.
+Line 1041: The property name Arrange in ListView1 is invalid.
+Line 1042: The property name LabelEdit in ListView1 is invalid.
+Line 1043: The property name Sorted in ListView1 is invalid.
+Line 1044: The property name LabelWrap in ListView1 is invalid.
+Line 1045: The property name HideSelection in ListView1 is invalid.
+Line 1046: The property name _Version in ListView1 is invalid.
+Line 1047: The property name Icons in ListView1 is invalid.
+Line 1048: The property name SmallIcons in ListView1 is invalid.
+Line 1053: The property name NumItems in ListView1 is invalid.
+Line 1109: The property name _ExtentX in TreeView2 is invalid.
+Line 1110: The property name _ExtentY in TreeView2 is invalid.
+Line 1111: The property name _Version in TreeView2 is invalid.
+Line 1112: The property name LabelEdit in TreeView2 is invalid.
+Line 1113: The property name Sorted in TreeView2 is invalid.
+Line 1114: The property name Style in TreeView2 is invalid.
+Line 4451: The property name _ExtentX in ImageList2 is invalid.
+Line 4452: The property name _ExtentY in ImageList2 is invalid.
+Line 4454: The property name ImageWidth in ImageList2 is invalid.
+Line 4455: The property name ImageHeight in ImageList2 is invalid.
+Line 4456: The property name UseMaskColor in ImageList2 is invalid.
+Line 4457: The property name _Version in ImageList2 is invalid.
+Line 4528: The property name Images in ImageList2 is invalid.
+Line 4533: The property name _ExtentX in ImageList1 is invalid.
+Line 4534: The property name _ExtentY in ImageList1 is invalid.
+Line 4536: The property name ImageWidth in ImageList1 is invalid.
+Line 4537: The property name ImageHeight in ImageList1 is invalid.
+Line 4538: The property name UseMaskColor in ImageList1 is invalid.
+Line 4539: The property name _Version in ImageList1 is invalid.
+Line 4718: The property name Images in ImageList1 is invalid.
